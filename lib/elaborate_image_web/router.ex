@@ -4,10 +4,10 @@ defmodule ElaborateImageWeb.Router do
   use Sentry.Plug
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   scope "/api", ElaborateImageWeb do
-    pipe_through :api
+    pipe_through(:api)
   end
 end
