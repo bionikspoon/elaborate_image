@@ -6,7 +6,7 @@ defmodule ElaborateImage.Mixfile do
       app: :elaborate_image,
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       deps: deps(),
-      elixir: "~> 1.6",
+      elixir: "~> 1.6-dev",
       elixirc_paths: elixirc_paths(Mix.env()),
       preferred_cli_env: [
         coveralls: :test,
