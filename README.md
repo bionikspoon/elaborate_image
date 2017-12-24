@@ -1,5 +1,7 @@
 # ElaborateImage
 
+[![Build Status](https://travis-ci.org/bionikspoon/elaborate_image.svg?branch=develop)](https://travis-ci.org/bionikspoon/elaborate_image)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
