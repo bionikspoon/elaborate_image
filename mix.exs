@@ -4,12 +4,19 @@ defmodule ElaborateImage.Mixfile do
   def project do
     [
       app: :elaborate_image,
-      version: "0.0.1",
-      elixir: "~> 1.4",
-      elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      deps: deps(),
+      elixir: "~> 1.6",
+      elixirc_paths: elixirc_paths(Mix.env()),
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ],
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      test_coverage: [tool: ExCoveralls],
+      version: "0.0.1"
     ]
   end
 
@@ -34,6 +41,7 @@ defmodule ElaborateImage.Mixfile do
     [
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.3", only: [:dev, :test]},
+      {:excoveralls, "~> 0.8", only: :test},
       {:gettext, "~> 0.11"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix, "~> 1.3.0"},
