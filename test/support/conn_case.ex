@@ -1,3 +1,5 @@
+alias Phoenix.ConnTest
+
 defmodule ElaborateImageWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
@@ -27,6 +29,6 @@ defmodule ElaborateImageWeb.ConnCase do
   end
 
   setup _tags do
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
+    {:ok, conn: ConnTest.build_conn()}
   end
 end

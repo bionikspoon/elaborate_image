@@ -1,4 +1,7 @@
+alias ElaborateImageWeb.Endpoint
+
 defmodule ElaborateImage.Application do
+  @moduledoc false
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -9,7 +12,7 @@ defmodule ElaborateImage.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the endpoint when the application starts
-      supervisor(ElaborateImageWeb.Endpoint, [])
+      supervisor(Endpoint, [])
       # Start your own worker by calling: ElaborateImage.Worker.start_link(arg1, arg2, arg3)
       # worker(ElaborateImage.Worker, [arg1, arg2, arg3]),
     ]
@@ -23,7 +26,7 @@ defmodule ElaborateImage.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    ElaborateImageWeb.Endpoint.config_change(changed, removed)
+    Endpoint.config_change(changed, removed)
     :ok
   end
 end
