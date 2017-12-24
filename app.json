@@ -1,0 +1,19 @@
+{
+  "name": "elaborate_image",
+  "scripts": {},
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "formation": {},
+  "addons": ["logentries"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+    }
+  ]
+}
