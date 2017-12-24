@@ -19,7 +19,7 @@ defmodule ElaborateImage.Mixfile do
   def application do
     [
       mod: {ElaborateImage.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:sentry, :logger, :runtime_tools]
     ]
   end
 
@@ -35,7 +35,8 @@ defmodule ElaborateImage.Mixfile do
       {:phoenix, "~> 1.3.0"},
       {:phoenix_pubsub, "~> 1.0"},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:sentry, "~> 6.0.0"}
     ]
   end
 end
