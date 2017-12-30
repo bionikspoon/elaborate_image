@@ -12,6 +12,8 @@ config :elaborate_image, ElaborateImageWeb.Endpoint,
   render_errors: [view: ElaborateImageWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: ElaborateImage.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :elaborate_image, :generators, migration: false, schema: false
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

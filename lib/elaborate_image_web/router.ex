@@ -7,7 +7,9 @@ defmodule ElaborateImageWeb.Router do
     plug(:accepts, ["json"])
   end
 
-  scope "/api", ElaborateImageWeb do
+  scope "/1", ElaborateImageWeb.Api.V1, as: :api_v1 do
     pipe_through(:api)
+
+    get("/", ImageController, :resize)
   end
 end
