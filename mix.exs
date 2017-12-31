@@ -42,6 +42,7 @@ defmodule ElaborateImage.Mixfile do
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.3", only: [:dev, :test]},
       {:excoveralls, "~> 0.8", only: :test},
+      {:exredis, ">= 0.2.4"},
       {:gettext, "~> 0.11"},
       {:mix_test_watch, "~> 0.5", only: :dev, runtime: false},
       {:phoenix_pubsub, "~> 1.0"},
