@@ -31,6 +31,21 @@ config :exredis,
   reconnect: :no_reconnect,
   max_queue: :infinity
 
+config :exq,
+  host: "0.0.0.0",
+  port: 6379,
+  name: Exq,
+  namespace: "exq",
+  concurrency: 4,
+  queues: ["default"],
+  poll_timeout: 50,
+  scheduler_poll_timeout: 200,
+  scheduler_enable: true,
+  max_retries: 5,
+  shutdown_timeout: 5000
+
+config :exq_ui, server: false
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

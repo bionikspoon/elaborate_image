@@ -13,6 +13,8 @@ config :elaborate_image, ElaborateImageWeb.Endpoint,
   check_origin: false,
   watchers: []
 
+config :elaborate_image, exq_ui: true
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

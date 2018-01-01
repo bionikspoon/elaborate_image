@@ -11,7 +11,8 @@ config :logger, level: :warn
 
 config :exredis,
   host: "0.0.0.0",
-  port: 6378,
-  db: 0,
-  reconnect: :no_reconnect,
-  max_queue: :infinity
+  port: 6378
+
+config :exq,
+  host: "0.0.0.0",
+  port: 6378

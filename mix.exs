@@ -26,7 +26,7 @@ defmodule ElaborateImage.Mixfile do
   def application do
     [
       mod: {ElaborateImage.Application, []},
-      extra_applications: [:sentry, :logger, :runtime_tools]
+      extra_applications: [:sentry, :logger, :runtime_tools, :exq, :exq_ui]
     ]
   end
 
@@ -42,6 +42,8 @@ defmodule ElaborateImage.Mixfile do
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.3", only: [:dev, :test]},
       {:excoveralls, "~> 0.8", only: :test},
+      {:exq, "~> 0.9.1"},
+      {:exq_ui, "~> 0.9.0"},
       {:exredis, ">= 0.2.4"},
       {:gettext, "~> 0.11"},
       {:mix_test_watch, "~> 0.5", only: :dev, runtime: false},

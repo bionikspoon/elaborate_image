@@ -10,15 +10,15 @@ defmodule ElaborateImage.ImagesTest do
     R.flushall()
   end
 
-  describe "get/2" do
+  describe "find/2" do
     test "returns an undefined url result" do
-      assert Images.get(@url) === {:error, :undefined}
+      assert Images.find(@url) === {:error, :undefined}
     end
 
     test "returns an defined url result" do
       R.set(@url, "https://example.com/image.jpeg")
 
-      assert Images.get(@url) === {:ok, "https://example.com/image.jpeg"}
+      assert Images.find(@url) === {:ok, "https://example.com/image.jpeg"}
     end
   end
 end

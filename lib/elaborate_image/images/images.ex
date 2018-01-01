@@ -4,7 +4,7 @@ defmodule ElaborateImage.Images do
   """
   alias Exredis.Api, as: R
 
-  def get(url) do
+  def find(url) do
     case R.get(url) do
       value when is_atom(value) -> {:error, value}
       value -> {:ok, value}

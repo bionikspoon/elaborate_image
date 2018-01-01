@@ -5,7 +5,7 @@ defmodule ElaborateImageWeb.Api.V1.ImageControllerTest do
   @url "https://s3.amazonaws.com/elaborate-image/demo/resized/pexels-photo-736008.jpeg"
 
   describe "resize/2 with an uncached url" do
-    setup [:clear_cache, :fetch_path]
+    setup [:clear_cache, :unsub_queues, :fetch_path]
 
     test "Responds with a temporary redirect", %{conn: conn} do
       assert conn.status == 307
@@ -14,10 +14,16 @@ defmodule ElaborateImageWeb.Api.V1.ImageControllerTest do
     test "Responds with a redirect url", %{conn: conn} do
       assert get_redirect_url!(conn) === @url
     end
+
+    test "Enqueues 1 resize job" do
+      {:ok, queue_size} = Exq.Api.queue_size(Exq.Api, "default")
+
+      assert queue_size === 1
+    end
   end
 
   describe "resize/2 with cached url" do
-    setup [:clear_cache, :cache_url, :fetch_path]
+    setup [:clear_cache, :unsub_queues, :cache_url, :fetch_path]
 
     test "Responds with a permenant redirect", %{conn: conn} do
       assert conn.status == 308
@@ -26,10 +32,20 @@ defmodule ElaborateImageWeb.Api.V1.ImageControllerTest do
     test "Responds with a redirect url", %{conn: conn} do
       assert get_redirect_url!(conn) === "https://example.com/image.jpeg"
     end
+
+    test "Enqueues 0 resize jobs" do
+      {:ok, queue_size} = Exq.Api.queue_size(Exq.Api, "default")
+
+      assert queue_size === 0
+    end
   end
 
   defp clear_cache(_context) do
     R.flushall()
+  end
+
+  defp unsub_queues(_context) do
+    Exq.unsubscribe_all(Exq)
   end
 
   defp cache_url(_context) do
