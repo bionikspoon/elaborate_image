@@ -1,7 +1,7 @@
 defmodule ElaborateImage.ResizeWorker do
-@moduledoc """
-Module to resize images.
-"""
+  @moduledoc """
+  Module to resize images.
+  """
 
   def perform(url) do
     IO.puts(url)
